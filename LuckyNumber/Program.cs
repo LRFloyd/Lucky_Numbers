@@ -50,7 +50,60 @@ namespace Lucky_Numbers
                 //Then ask the user for input 
                 //Finally the console will clear the screen for new text
 
-                
+                //Intro
+                Console.WriteLine("Hello User, Please enter your name");
+                string userName = Console.ReadLine();
+                Console.Clear();
+                Console.WriteLine("Hello {0}, {1}\n", userName, message);
+                Console.WriteLine("Please press any key to contine");
+                Console.ReadKey();
+                Console.Clear();
+
+                Console.WriteLine("In this game you will make a range of numbers, \nsetting a high and low number first.\n");
+                Console.WriteLine("Then based on the range you made, \nyou'll choose an additional six numbers to guess \nwhat you think is the 'LUCKY NUMBERS' to win a jackpot!\n");
+                Console.WriteLine("Please press any key to contine");
+                Console.ReadKey();
+                Console.Clear();
+
+                Console.WriteLine("The larger the range, the greater your chances are of winning! \nYour winning is based on the number of numbers guessed correctly.\n");
+                Console.WriteLine("Please press any key to continue");
+                Console.ReadKey();
+                Console.Clear();
+
+                Console.WriteLine("The current jackpot winning is $1,500,000,000.00!!!!\n");
+                Console.WriteLine("{0} Are you ready to play LUCKY NUMBERS?\n", userName);
+                Console.WriteLine("Please enter 'Yes', 'Quit' or 'Help' to end the game");
+                resume = (Console.ReadLine().ToLower());
+                Console.Clear();
+
+                //Console is asking for user input to proceed into the game
+                //The user has the options to proceed, quit or ask for help
+
+                if (resume == "help")
+                {
+                    Console.WriteLine("Here is an example,\n \n{0} if you guess three out of six numbers correctly \nthen you'll get three sixths or half the amount of winnings!\n", userName);
+                    Console.WriteLine("If the winning was $1000.00, you'll recieve $500.00.! \n{0} you only need LUCKY NUMBER IS NEEDED TO WIN!\n", userName);
+                    Console.WriteLine("Please press any key to continue");
+                    Console.ReadKey();
+                    Console.Clear();
+                    Console.WriteLine("{0} Are you ready to play LUCKY NUMBERS?\n", userName);
+                    Console.WriteLine("Please enter 'Yes' or 'Quit' to end the game\n");
+                    resume = (Console.ReadLine().ToLower());
+                    Console.Clear();
+                }
+                else if (resume == "quit")
+                {
+                    playAgain = false;
+                    return;
+                }
+
+
+                if (resume == "quit")
+                {
+                    playAgain = false;
+                    return;
+                }
+               
             } while (playAgain == true);                                                                                   
         }
     }
