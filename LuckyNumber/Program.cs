@@ -103,7 +103,54 @@ namespace Lucky_Numbers
                     playAgain = false;
                     return;
                 }
-               
+                
+                //The user is now asked for the starting number
+               Console.WriteLine("{0}, Please enter a starting number.\nThis is your lowest number in your range.", userName);
+               lowUserNumS = Console.ReadLine();
+               int.TryParse(lowUserNumS, out lowUserNumI);
+
+                    //if the starting number,(string) isnt able to be properly converted(into an int) to be stored for later...
+                    //then the console will ask for a number in the loop
+                    
+                        while (int.TryParse(lowUserNumS, out lowUserNumI) != true)
+                        {
+                            Console.WriteLine("You have entered an invalid entry, please enter a number");
+                            lowUserNumS = Console.ReadLine();
+                            int.TryParse(lowUserNumS, out lowUserNumI);
+                        }
+                        
+                    //the console ask for input and try the input before attempting to store it for later use
+                    Console.WriteLine("Please enter an ending number. \nThis is the highest number in your range.");
+                    highUserNumS = Console.ReadLine();
+                    int.TryParse(highUserNumS, out highUserNumI);
+
+                    //console checks to the user input and test it to make sure the input is a value
+                    //if not the console prompts the user for a proper entry until the user enters a value
+                    
+                    while (int.TryParse(highUserNumS, out highUserNumI) != true)
+                    {
+                        Console.WriteLine("please enter a number");
+                        highUserNumS = Console.ReadLine();
+                        int.TryParse(highUserNumS, out highUserNumI);
+                    }
+                    //console checks to see if the user input ending number is the same as the starting number 
+                    //if it is the loop prompts to user to change the input to another number 
+                    //console also checks to make sure the user enters a number not characters
+
+                    while (highUserNumS == lowUserNumS)
+                    {
+                        Console.WriteLine("you have duplicate numbers, please enter a different number than number: {0}", lowUserNumS);
+                        highUserNumS = Console.ReadLine();
+                        int.TryParse(highUserNumS, out highUserNumI);
+                    }                 
+                    
+                    userLuckyNumA[0] = lowUserNumI;
+                    userLuckyNumA[5] = highUserNumI;
+                
+                
+                Console.WriteLine("Great! {0}, {1} is the lowest and {2} is the highest number in your range.\n",userName,lowUserNumS,highUserNumS);
+                Console.Clear();
+         
             } while (playAgain == true);                                                                                   
         }
     }
