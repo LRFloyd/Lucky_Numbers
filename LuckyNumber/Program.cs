@@ -180,7 +180,63 @@ namespace Lucky_Numbers
                     Console.WriteLine("You've entered your numbers lets continue!");
                     Console.ReadKey();
                     Console.Clear();
-    
+                    
+                
+
+                Console.WriteLine("Now lets see what the actual numbers are to win that Jackpot!");
+                Console.WriteLine("Please press any key to continue");
+                Console.ReadKey();
+                
+
+                //the console will begin to print the lucky numbers                               
+                for (int i = 0; i < jackpotRandomNum.Length; i++)
+                {
+                    testNumb = jackpotRandom.Next(lowUserNumI, highUserNumI);
+                    while ((jackpotRandomNum.Contains(testNumb) == true) || (testNumb < lowUserNumI) ||( testNumb > highUserNumI))
+                    {
+                        testNumb = jackpotRandom.Next(lowUserNumI, highUserNumI);
+                    }
+
+                    jackpotRandomNum[i] = testNumb;
+
+                    for (int j = 0; j < 1; j++)
+                    {
+                        if (userLuckyNumA.Contains(testNumb) == true)
+                        {
+                            matches++;
+                            Console.WriteLine("Lucky Number:" + testNumb);
+                        }
+                    }
+                }
+                //the console will check if the user stored variables are equal to the jackpot variables 
+                //the console will increase the int 'matches'  
+                //if matches is greated then 0 the console will show the user their winning
+                if (matches > 0)
+                {                    
+                    Console.WriteLine("You have guessed {0} out of 6 numbers correctly!", matches);
+                    jackpot = (jackpot *(matches/6 ));
+                    winnings = Convert.ToString(jackpot);
+                    Console.WriteLine("Congradulations your win ${0}", winnings);
+                }
+                else if (matches < 0)
+                {                    
+                    Console.WriteLine(" You have guessed 0 out of 6 numbers correctly!");
+                    Console.WriteLine(" Congradulations your win $0.00, sorry try again");
+                }
+                
+                //the console will ask the user to play again
+                Console.WriteLine("would you like to play again? Please enter 'Yes' to play again or 'Quit' to exit");
+                resume = (Console.ReadLine().ToLower());
+
+                if(resume == "yes")
+                {
+                    playAgain = true;
+                }
+                else if(resume == "quit")
+                {
+                    Console.WriteLine("Thanks for playing!");
+                    playAgain = false;
+                }
             } while (playAgain == true);                                                                                   
         }
     }
