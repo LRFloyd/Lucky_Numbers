@@ -150,7 +150,37 @@ namespace Lucky_Numbers
                 
                 Console.WriteLine("Great! {0}, {1} is the lowest and {2} is the highest number in your range.\n",userName,lowUserNumS,highUserNumS);
                 Console.Clear();
-         
+                
+                Console.WriteLine("Please enter 4 numbers that you think are the LUCKY NUMBERS\n",userName);
+                   
+                    //this loop will store the 6 numbers the user enters
+                    for (int i = 1; i < 5 ; i++)
+                    {                        
+                        Console.WriteLine("Please enter another lucky number");
+                        userLuckyNumS = Console.ReadLine();
+                        int.TryParse(userLuckyNumS, out userLuckyNumI);
+                        
+                        //if the user enters a character that isnt a value the user will be asked for another input of an actual number
+                        while ((int.TryParse(userLuckyNumS, out userLuckyNumI) != true) || ( testNum == userLuckyNumS) || (userLuckyNumA.Contains(userLuckyNumI) == true))
+                        {
+                            Console.WriteLine("Sorry, that entry was invalid entry. Please enter a number");
+                            userLuckyNumS = Console.ReadLine();
+                            int.TryParse(userLuckyNumS, out userLuckyNumI);
+                        }
+                        //this loop will check to see if the user input a number the same as the high or low starting numbers
+                        while ((userLuckyNumI <= lowUserNumI)||(userLuckyNumI >= highUserNumI))
+                        {
+                            Console.WriteLine("Please enter an number other than your lowest {0} and highest {1} range numbers", lowUserNumS, highUserNumS);
+                            userLuckyNumS = Console.ReadLine();
+                            int.TryParse(userLuckyNumS, out userLuckyNumI);
+                        }
+                        testNum = userLuckyNumS;
+                       userLuckyNumA[i] = int.Parse(userLuckyNumS);
+                    }
+                    Console.WriteLine("You've entered your numbers lets continue!");
+                    Console.ReadKey();
+                    Console.Clear();
+    
             } while (playAgain == true);                                                                                   
         }
     }
