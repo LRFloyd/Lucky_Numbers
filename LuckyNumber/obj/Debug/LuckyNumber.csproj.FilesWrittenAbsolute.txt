@@ -1,0 +1,5 @@
+/home/manovo/RiderProjects/LuckyNumber/LuckyNumber/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttribute.cs
+/home/manovo/RiderProjects/LuckyNumber/LuckyNumber/bin/Debug/LuckyNumber.pdb
+/home/manovo/RiderProjects/LuckyNumber/LuckyNumber/bin/Debug/LuckyNumber.exe
+/home/manovo/RiderProjects/LuckyNumber/LuckyNumber/obj/Debug/LuckyNumber.exe
+/home/manovo/RiderProjects/LuckyNumber/LuckyNumber/obj/Debug/LuckyNumber.pdb
